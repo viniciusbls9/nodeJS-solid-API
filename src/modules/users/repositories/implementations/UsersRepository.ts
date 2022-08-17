@@ -42,10 +42,6 @@ class UsersRepository implements IUsersRepository {
   findByEmail(email: string): User | undefined {
     const findUserByEmail = this.users.find((user) => user.email === email);
 
-    if (!findUserByEmail) {
-      throw new Error("User not found");
-    }
-
     return findUserByEmail;
   }
 
