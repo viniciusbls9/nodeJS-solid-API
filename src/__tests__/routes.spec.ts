@@ -21,7 +21,15 @@ describe("[POST] /users", () => {
     });
   });
 
-  it("should not be able to create new users when email is already taken", async () => {
+  it.only("should not be able to create new users when email is already taken", async () => {
+    await request(app)
+      .post("/users")
+      .send({
+        name: "John Doe",
+        email: "john.doe@example.com",
+      })
+      .expect(201);
+
     const response = await request(app)
       .post("/users")
       .send({
