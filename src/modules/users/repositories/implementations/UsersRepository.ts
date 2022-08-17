@@ -57,6 +57,7 @@ class UsersRepository implements IUsersRepository {
     const turnUserAdmin = {
       ...receivedUser,
       admin: true,
+      updated_at: new Date(),
     };
     return turnUserAdmin;
   }
